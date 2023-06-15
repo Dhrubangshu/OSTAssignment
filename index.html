@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog Website</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Main content styles */
+    main {
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 30px;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    /* Blogs section styles */
+    #blogs {
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    .segment {
+      margin-bottom: 30px;
+    }
+
+    .segment h3 {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+    }
+
+    /* News feeds section styles */
+    #news-feeds {
+      background-color: #eaeaea;
+      padding: 20px;
+    }
+
+    /* Upcoming events section styles */
+    #events {
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    /* Jobs section styles */
+    #jobs {
+      background-color: #eaeaea;
+      padding: 20px;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+      /* Dropdown styles */
+      .dropdown-content {
+        display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      padding: 0;
+      list-style: none;
+      margin: 0;
+      }
+  
+      .segment:hover .dropdown-content {
+        display: block;
+      }
+      .dropdown-content li {
+        padding: 10px;
+        cursor: pointer;
+      }
+        .dropdown-icon {
+          display: inline-block;
+          margin-left: 5px;
+        }
+  </style>
+  <script>
+    // JavaScript for dropdown functionality
+    window.addEventListener('DOMContentLoaded', function() {
+      var segments = document.querySelectorAll('.segment');
+
+      segments.forEach(function(segment) {
+        var dropdownContent = segment.querySelector('.dropdown-content');
+        var subSegments = dropdownContent.querySelectorAll('li');
+
+        segment.addEventListener('click', function() {
+          if (dropdownContent.style.display === 'block') {
+            dropdownContent.style.display = 'none';
+          } else {
+            dropdownContent.style.display = 'block';
+          }
+        });
+
+        subSegments.forEach(function(subSegment) {
+          subSegment.addEventListener('click', function(event) {
+            event.stopPropagation();
+            var selectedSubSegment = event.target.textContent;
+            console.log('Selected sub-segment:', selectedSubSegment);
+            // Add your desired behavior here, such as navigation or further actions
+          });
+        });
+        dropdownContent.addEventListener('click', function(event) {
+          event.stopPropagation();
+        });
+      });
+
+      document.addEventListener('click', function() {
+        var dropdowns = document.querySelectorAll('.dropdown-content');
+        dropdowns.forEach(function(dropdown) {
+          dropdown.style.display = 'none';
+        });
+      });
+    });
+    
+   
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Welcome to our Blog Website</h1>
+  </header>
+
+  <main>
+    <section id="blogs">
+      <h2 style="font-size: 36px;">BLOGS</h2>
+      <div class="segment">
+        <h3>Segment 1 <span class="dropdown-icon">&#9660;</span></h3>
+        <ul class = "dropdown-content">
+          <li>Sub-segment 1</li>
+          <li>Sub-segment 2</li>
+          <li>Sub-segment 3</li>
+          <li>Sub-segment 4</li>
+          <li>Sub-segment 5</li>
+          <li>Sub-segment 6</li>
+          <!-- Add more sub-segments as needed -->
+        </ul>
+      </div>
+      <div class="segment">
+        <h3>Segment 2 <span class="dropdown-icon">&#9660;</span></h3>
+        <ul class = "dropdown-content">
+          <li>Sub-segment 1</li>
+          <li>Sub-segment 2</li>
+          <li>Sub-segment 3</li>
+          <li>Sub-segment 4</li>
+          <li>Sub-segment 5</li>
+          <li>Sub-segment 6</li>
+          <!-- Add more sub-segments as needed -->
+        </ul>
+      </div>
+      <div class="segment">
+        <h3>Segment 3 <span class="dropdown-icon">&#9660;</span></h3>
+        <ul class = "dropdown-content">
+          <li>Sub-segment 1</li>
+          <li>Sub-segment 2</li>
+          <li>Sub-segment 3</li>
+          <li>Sub-segment 4</li>
+          <li>Sub-segment 5</li>
+          <li>Sub-segment 6</li>
+          <!-- Add more sub-segments as needed -->
+        </ul>
+      </div>
+    </section>
+
+    <section id="news-feeds">
+      <h2>News Feeds</h2>
+      <p>Here you can find the latest news updates.</p>
+      <!-- Add your news feed content here -->
+    </section>
+
+    <section id="events">
+      <h2>Upcoming Events</h2>
+      <p>Stay tuned for exciting events and updates.</p>
+      <!-- Add your upcoming events content here -->
+    </section>
+
+    <section id="jobs">
+      <h2>Jobs</h2>
+      <p>Explore job opportunities.</p>
+      <!-- Add your job listings here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Your Blog Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>
